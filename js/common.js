@@ -157,7 +157,7 @@ function App(){
 			if(!!li[i].textContent){
 				last = i-1;
 				break;
-			}else{
+			}else if( i == 8 ){
 				last = i;
 				break;
 			}
