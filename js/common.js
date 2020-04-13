@@ -159,6 +159,7 @@ function App(){
 				break;
 			}
 		}
+		last = !!!last ? first+1 : last;
 		for(let i = first; i<=last; i++){
 			let lis = li[i];
 			liClone = liClone.filter( f => f != lis );
