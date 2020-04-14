@@ -7,7 +7,15 @@ html,body{ width: 100%; height: 100%; display: flex; justify-content: center; al
 #TimeTable .day{ display: flex;}
 #TimeTable .time{ clear:left; }
 #TimeTable h1{ max-width: 720px; text-align: center; line-height: 50px; font-size:20px;}
+#TimeTable h1 span{ padding-left:15px; }
 #TimeTable ul{ float:left; }
 #TimeTable li{ width: 120px; height: 50px; line-height: 50px; text-align: center; border:1px solid lightgray;}
 #TimeTable li a{ display: block; width: 100%; height: 100%; }
 #TimeTable .select{ background: lightcoral; color:#fff; }
+
+
+@media(max-width: 800px){
+	#TimeTable h1{ font-size:5vw; }
+	#TimeTable li{ width: 16vw; height: 15vw; font-size:2vw; max-height: 50px; }
+	#TimeTable li a{ font-size:2vw; }
+}

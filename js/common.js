@@ -114,7 +114,7 @@ function App(){
 			a.textContent = arr[idx][1];
 			a.href = TimeTable.teacher[arr[idx][1]].href;
 			if(TimeTable.teacher[arr[idx][1]].href != "#!" ) a.setAttribute("target","_blank")
-			li.append(a);
+				li.append(a);
 			ul.append(li);
 			for(let i=0,len= idx == arr.length-1 ? Math.abs(arr[idx][0]-9) : Math.abs(arr[idx][0]-arr[idx+1][0])-1; i<len; i++){
 				let li = create("li");
@@ -125,6 +125,7 @@ function App(){
 	} );
 	let ul = all(".week");
 	loopTime();
+	TimeChange();
 	function loopTime(){
 		let Today = new Date(), TodayUl = ul[Today.getDay()-1];
 		if( !!!TodayUl ) return false;
@@ -169,6 +170,34 @@ function App(){
 		}
 		liClone.forEach( v => v.removeClass("select") );
 	}
+	function TimeChange(){
+		let
+		Today = new Date(),
+		hours = Today.getHours(),
+		minute = (Today.getMinutes()+"").length === 1 ? "0"+Today.getMinutes() : Today.getMinutes(),
+		time = hours+""+minute,
+		period = one("#period"),
+		check = 
+		830 <= time && time < 920 ? "1교시 ( 8:30-9:20 ) ": 
+		920 <= time && time < 930 ? "1교시 쉬는시간": 
+		930 <= time && time < 1020 ? "2교시 ( 9:30-10:20 )":
+		1020 <= time && time < 1030 ? "2교시 쉬는시간":
+		1030 <= time && time < 1120 ? "3교시 ( 10:30-11:20 )":
+		1120 <= time && time < 1130 ? "3교시 쉬는시간":
+		1130 <= time && time < 1220 ? "4교시 ( 11:30-12:20 )":
+		1220 <= time && time < 1320 ? "점심 시간":
+		1320 <= time && time < 1410 ? "5교시 ( 13:20-14:10 )":
+		1410 <= time && time < 1420 ? "5교시 쉬는시간":
+		1420 <= time && time < 1510 ? "6교시 ( 14:20-15:10 )":
+		1510 <= time && time < 1520 ? "6교시 쉬는시간":
+		1520 <= time && time < 1610 ? "7교시 ( 15:20-16:10 )":
+		1610 <= time && time < 1620 ? "7교시 쉬는시간":
+		1620 <= time && time < 1710 ? "8교시 ( 16:20-17:10 )":
+		1710 <= time && time < 1720 ? "8교시 쉬는시간":
+		1720 <= time && time < 1810 ? "9교시 ( 17:20-18:10 )": "end";
+		period.textContent = check;
+	}
+	setInterval(TimeChange,1000);
 	setInterval(loopTime,1000);
 }
 window.onload = function(){
