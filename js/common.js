@@ -22,7 +22,7 @@ const TimeTable = {
 		},
 		"최승호":{
 			"title":"체육",
-			"href":"https://classroom.google.com/w/NTY0NzM3MTQ0MDha/t/all"
+			"href":"https://classroom.google.com/u/0/c/NzA1NzM5NjQ0NTda"
 		},
 		"권순용":{
 			"title":"종교",
