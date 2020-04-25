@@ -125,10 +125,12 @@ function App(){
 	} );
 	let ul = all(".week");
 	loopTime();
-	TimeChange();
 	function loopTime(){
 		let Today = new Date(), TodayUl = ul[Today.getDay()-1];
 		if( !!!TodayUl ) return false;
+		TimeChange();
+		setInterval(TimeChange,1000);
+		setInterval(loopTime,1000);
 		let hours = Today.getHours(),
 		minute = (Today.getMinutes()+"").length === 1 ? "0"+Today.getMinutes() : Today.getMinutes(),
 		time = hours+""+minute,
@@ -197,8 +199,6 @@ function App(){
 		1720 <= time && time < 1810 ? "9교시 ( 17:20-18:10 )": "end";
 		period.textContent = check;
 	}
-	setInterval(TimeChange,1000);
-	setInterval(loopTime,1000);
 }
 window.onload = function(){
 	App();
