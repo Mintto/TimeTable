@@ -37,7 +37,7 @@ const TimeTable = {
 			"href":"https://classroom.google.com/w/NTUyNzYyNTAzNDda/t/all"
 		},
 		"창체":{
-			"href":"#!"
+			"href":"https://classroom.google.com/u/0/w/NTYwOTczNTczMzha/t/all"
 		}
 	},
 	"class":{
